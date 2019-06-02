@@ -63,4 +63,4 @@ class Comments(db.Model):
 
     def save_comment(self):
         db.session.add(self)
-        db.session.commit() 
+        db.session.commit()
