@@ -39,10 +39,10 @@ class User(UserMixin, db.Model):
 class Post(db.Model):
     __tablename__ = 'posts'
 
-    id = db.Column(db.String)
+    id = db.Column(db.Integer, primary_key=True)
     post = db.Column(db.String)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
-    Comments = db.relationship("Comments", backref="pitch", lazy="dynamic")
+    Comments = db.relationship("Comments", backref="post", lazy="dynamic")
 
     def save_post(self):
         db.session.add(self)
