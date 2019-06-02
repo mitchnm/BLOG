@@ -10,11 +10,11 @@
   {% endif %}
   {% block content %}
   <div class="container">
-    <h2 style="text-align: center;"><strong><u>WELCOME TO PITCHES.💚</u></strong></h2><br><br>
     <div class="row" style="margin-bottom: 0%;">
       {% if current_user.is_authenticated %}
       {% for post in posts %}
-      <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12" style=" border: 2px solid black;padding-bottom: 15px; text-align: center;">
+      <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12"
+        style=" border: 2px solid black;padding-bottom: 15px; text-align: center;">
         <h2 class="card-text" style="font-family: 'Orbitron', sans-serif;">{{post.post}}</h2>
         <a href="/post/{{post.id}}">comments</a>
       </div>
@@ -23,7 +23,8 @@
     <br><br>
     {{wtf.quick_form(post_form)}}
     {%else%}
-    <h2 style="font-size: 50px; text-align: center; font-family: 'Faster One', cursive;"></h2>
+    <h2 style="text-align: center;"><strong><u>WELCOME TO MY BLOG.</u></strong></h2><br><br>      
+    <h2 style="font-size: 50px; text-align: center; font-family: 'Faster One', cursive;">PLEASE LOG IN so as to create and share your opinions .</h2>
     <br><br>
     {%endif%}
   </div>
