@@ -14,7 +14,7 @@
     <div class="row" style="margin-bottom: 0%;">
       {% if current_user.is_authenticated %}
       {% for post in posts %}
-      <div class="col-md-4 col-xs-4 col-lg-4 col-sm-4" style=" padding-bottom: 2.5%; text-align: center;">
+      <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12" style=" border: 2px solid black;padding-bottom: 15px; text-align: center;">
         <h2 class="card-text" style="font-family: 'Orbitron', sans-serif;">{{post.post}}</h2>
         <a href="/post/{{post.id}}">comments</a>
       </div>
