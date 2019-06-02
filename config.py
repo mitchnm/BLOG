@@ -4,7 +4,7 @@ class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY')
     UPLOADED_PHOTOS_DEST = 'app/static/photos'
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://mitch:qwertyuiop@localhost/blog'
-
+    QUOTE_API_BASE_URL ='http://quotes.stormconsultancy.co.uk/random.json'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     #  email configurations
