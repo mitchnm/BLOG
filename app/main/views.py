@@ -14,7 +14,7 @@ def index():
         # Updated post
         new_post = Post(post=post, user=current_user)
 
-        # save pitch method
+        # save post method
         new_post.save_post()
      
     posts = Post.query.all()
