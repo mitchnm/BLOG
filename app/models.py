@@ -26,6 +26,41 @@ class User(UserMixin, db.Model):
     def password(self):
         raise AttributeError('You cannot read the password attribute')
 
-@password.setter
-def password(self, password):
-    self.password_secure = generate_password_hash(password)      
+    @password.setter
+    def password(self, password):
+        self.password_secure = generate_password_hash(password)
+
+    def verify_password(self, password):
+        return check_password_hash(self.password_secure, password)
+
+    def __repr__(self):
+        return f'User {self.username}'
+
+class Post(db.Model):
+    __tablename__ = 'posts'
+
+    id = db.Column(db.String)
+    post = db.Column(db.String)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
+    Comments = db.relationship("Comments", backref="pitch", lazy="dynamic")
+
+    def save_post(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def get_post_comments(self):
+        post = Post.query.filter_by(id=self.id).first()
+        comments = Comments.query.filter_by(post_id=post.id).order_by(Comments.time.desc())
+        return comments
+
+class Comments(db.Model):
+    __tablename__ = 'comments'
+
+    id = db.Column(db.Integer, primary_key=True)
+    comment = db.Column(db.String(255))
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
+    pitch_id = db.Column(db.Integer, db.ForeignKey("pitches.id"))
+
+    def save_comment(self):
+        db.session.add(self)
+        db.session.commit() 
