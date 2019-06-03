@@ -4,7 +4,7 @@
 
 ## Description
 
-This an application that allows a user to create and share their opinions.
+A personal blog where you can create and share your opinions and other users can read and comment on them. 
 
 ## Features
 * User can register or log in if he had not.
