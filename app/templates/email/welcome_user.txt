@@ -1,4 +1,4 @@
-Hello {{user.username}}
+Hello {{user.username}}🖤
 WELCOME TO MY BLOG.
-We have just seen you have signed up for our application and we want to welcome you to the fam.
-Hope you enjoy our services.
+We have just seen you have signed up for my application and I want to welcome you to the fam.
+Hope you enjoy my services.
