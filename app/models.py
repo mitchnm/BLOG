@@ -48,6 +48,8 @@ class Post(db.Model):
     post = db.Column(db.String)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
     Comments = db.relationship("Comments", backref="post", lazy="dynamic")
+    user = db.relationship("User", backref="post", lazy="dynamic")
+    posted_at=db.Column(db.DateTime, index=True, default=func.now())
 
     def save_post(self):
         db.session.add(self)
@@ -65,6 +67,7 @@ class Comments(db.Model):
     comment = db.Column(db.String(255))
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
     post_id = db.Column(db.Integer, db.ForeignKey("posts.id"))
+    posted_at=db.Column(db.DateTime, index=True, default=func.now())
 
     def save_comment(self):
         db.session.add(self)
