@@ -17,7 +17,7 @@
       <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12" style="padding-bottom: 15px; text-align: center;">
         <h2 class="card-text" style="font-family: 'Orbitron', sans-serif;">{{post.post}}</h2>
         <p><strong>Posted on: {{post.posted_at}}</strong></p>
-        <p><strong>Posted by: {{post.user}}</strong></p>
+        <p><strong>Posted by: {{post.user.username}}</strong></p>
         <a href="/post/{{post.id}}">comments</a>
       </div>
       {% endfor %}
@@ -27,7 +27,7 @@
     <br><br><br>
     {% for quote in quotes %}
     <h2 style="text-align: center"><u>Quote of the day:</u></h2>
-      <h3 style="text-align: center;font-family: 'Luckiest Guy', cursive;" >{{quote.quote}}</h3>
+      <h3 style="text-align: center;font-family: 'Luckiest Guy', cursive;" >{{quote.quote}}</h3><br>
       <h4 style="text-align: center;font-family: 'Orbitron', sans-serif;"><strong> ~{{quote.author}}</strong></h4>
     {% endfor %}
     {%else%}

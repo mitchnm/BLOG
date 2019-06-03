@@ -11,7 +11,9 @@
       <ul>
         <li>
           <h3 style="font-family: 'Architects Daughter', cursive; font-size:210%">{{comment.comment}}</h3><br>
-          <p><strong>Posted on {{comment.posted_at}}</strong></p>
+          <hr>
+          <p><strong>Commented on: {{comment.posted_at}}</strong></p>
+          <p><strong>Commented by: {{comment.user.username}}</strong></p>
         </li>
       </ul>
     </div>
