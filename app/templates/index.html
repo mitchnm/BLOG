@@ -12,7 +12,7 @@
   <div class="container">
     <div class="row" style="margin-bottom: 0%;">
       {% if current_user.is_authenticated %}
-      <h2>BLOG</h2>
+      <h2 style="font-family: 'Sigmar One', cursive; text-align: center;"><u>BLOG</u></h2>
       {% for post in posts %}
       <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12" style="padding-bottom: 15px; text-align: center;">
         <h2 class="card-text" style="font-family: 'Orbitron', sans-serif;">{{post.post}}</h2>
