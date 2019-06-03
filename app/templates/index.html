@@ -19,16 +19,16 @@
         <p><strong>Posted on: {{post.posted_at}}</strong></p>
         <p><strong>Posted by: {{post.user.username}}</strong></p>
         <a href="/post/{{post.id}}">comments</a>
-      </div>
+      </di  v>
       {% endfor %}
     </div>
     <br><br>
     {{wtf.quick_form(post_form)}}
-    <br><br><br>
+    <br><br>
     {% for quote in quotes %}
     <h2 style="text-align: center"><u>Quote of the day:</u></h2>
       <h3 style="text-align: center;font-family: 'Luckiest Guy', cursive;" >{{quote.quote}}</h3><br>
-      <h4 style="text-align: center;font-family: 'Orbitron', sans-serif;"><strong> ~{{quote.author}}</strong></h4>
+      <h4 style="text-align: center;font-family: 'Orbitron', sans-serif;"><strong> ~~ {{quote.author}}</strong></h4>
     {% endfor %}
     {%else%}
     <h2 style="text-align: center;"><strong><u>WELCOME TO MY BLOG.</u></strong></h2><br><br>
