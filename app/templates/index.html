@@ -13,8 +13,7 @@
     <div class="row" style="margin-bottom: 0%;">
       {% if current_user.is_authenticated %}
       {% for post in posts %}
-      <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12"
-        style="padding-bottom: 15px; text-align: center;">
+      <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12" style="padding-bottom: 15px; text-align: center;">
         <h2 class="card-text" style="font-family: 'Orbitron', sans-serif;">{{post.post}}</h2>
         <a href="/post/{{post.id}}">comments</a>
       </div>
@@ -26,9 +25,9 @@
     <h2 style="text-align: center;"><strong><u>WELCOME TO MY BLOG.</u></strong></h2><br><br>
     <h2 style="font-size: 50px; text-align: center; font-family: 'Faster One', cursive;">PLEASE LOG IN so as to create
       and share your opinions .</h2>
-    {% for popular_quote in quote %}
-    <li>{{ popular_quote.quote}}</li>
-    <li>{{ popular_quote.author}}</li>
+    {% for quote in quotes %}
+    <p>{{quote.quote}}</p>
+    by<strong> {{quote.author}}</strong>
     {% endfor %}
     <br><br>
     {%endif%}

@@ -1,6 +1,6 @@
 from ..models import User, Comments, Post
 from . import main
-#from ..requests import get_quote
+from ..requests import get_quotes
 from flask import render_template, request, redirect, url_for, abort
 from .forms import UpdateProfile, DisplayPost, CommentForm
 from flask_login import login_required, current_user
@@ -18,10 +18,10 @@ def index():
         # save post method
         new_post.save_post()
 
-    # popular_quotes = get_quote()
+    random_quotes = get_quotes()
     posts = Post.query.all()
     title = "Home"
-    return render_template('index.html', title=title, post_form=form, posts=posts)  
+    return render_template('index.html', title=title, post_form=form, posts=posts, quotes=random_quotes)  
 
 @main.route('/post/<int:id>', methods=['GET', 'POST'])
 @login_required

@@ -32,7 +32,7 @@ def process_results(quote_object):
     author = quote_object['author']
     quote = quote_object['quote']
     
-    quote_item.append(Quote(id,author,quote))
+    quote_item.append(Quote(id, author, quote))
     print(quote_item)   
     return quote_item
     
