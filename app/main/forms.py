@@ -3,7 +3,7 @@ from wtforms import TextAreaField, SubmitField, SelectField
 from wtforms.validators import Required
 
 class DisplayPost(FlaskForm):
-    text = TextAreaField('Type in your pitch', validators=[Required()])
+    text = TextAreaField('Type in your post', validators=[Required()])
     submit = SubmitField('post')
 
 class UpdateProfile(FlaskForm):

@@ -1,25 +1,38 @@
-# import urllib.request,json
-# from .models import Quote
+import urllib.request,json
+from .models import Quote
 
-# base_url = None
+base_url = None
 
-# def configure_request(app):
-#     global base_url
-#     base_url = app.config['QUOTE_API_BASE_URL']
+def configure_request(app):
+    global base_url
+    base_url = app.config['QUOTE_API_BASE_URL']
 
-# def get_quote():
-#     get_quote_details_url = base_url.format()
+def get_quotes():
+    '''
+    This function fetches the quotes using the quotes api
+    '''
+   
+    with urllib.request.urlopen(base_url) as url:
 
-#     with urllib.request.urlopen(get_quote_details_url) as url:
-#         quote_details_data = url.read()
-#         quote_details_response = json.loads(quote_details_data)
+        quotes_data = url.read()
+        random_quote = json.loads(quotes_data)
+        print(random_quote)
+        quotes_result = []
 
-#         quote_object = None
-#         if quote_details_response:
-#             id = quote_details_response.get('id')
-#             author = quote_details_response.get('author')
-#             quote = quote_details_response.get('quote')
+        if random_quote:
+            quote = random_quote
+            quote_item = process_results(quote)
 
-#             quote_object = Quote(id, author, quote)
+        return quote_item
 
-#     return quote_object
+def process_results(quote_object):
+
+    quote_item=[]
+    id = quote_object['id']
+    author = quote_object['author']
+    quote = quote_object['quote']
+    
+    quote_item.append(Quote(id,author,quote))
+    print(quote_item)   
+    return quote_item
+    
